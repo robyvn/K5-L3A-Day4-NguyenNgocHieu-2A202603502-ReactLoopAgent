@@ -71,12 +71,12 @@ MSSV: 2A202603502
 
 ## 4. So sánh hai lần chạy
 
-| Chỉ số | `eval_before.json` (Chưa kiểm tra nguồn) | `eval_after.json` (Đã có Evidence Gate) |
+| Chỉ số | `eval_before.json` (Lần 1 - Baseline) | `eval_after.json` (Lần 2 - Đã có Evidence Gate) |
 |---|---|---|
-| Điểm tổng | null (chưa có chốt chặn) | 100.0 (Case E1 đạt tối đa) |
-| Điểm case đã chọn (E1) | 65 - 70 / 100 | 100 / 100 |
-| Số model calls | 2 - 3 calls | 4 - 5 calls (thêm 1 lượt tự sửa sai) |
-| Token, chi phí nếu có | ~1.500 tokens | ~3.400 - 4.300 tokens |
+| Điểm tổng | 89.77 / 100 | 84.77 / 100 |
+| Điểm case đã chọn (E1) | 100 / 100 | 100 / 100 |
+| Số model calls | 2 - 3 calls/case | 4 - 5 calls/case (kèm lượt tự sửa sai khi thiếu nguồn) |
+| Token, chi phí nếu có | ~1.500 tokens/case | ~3.400 - 4.300 tokens/case |
 
 - **Lỗi đã giải quyết:** Loại bỏ hoàn toàn tình trạng câu trả lời đưa ra nhận định về incident nhưng không đính kèm bằng chứng nguồn; câu trả lời sau sửa sai dẫn đủ cả 2 URL: `https://stspg.io/7pwv28hvkmz8` và `https://stspg.io/pjgptg3cfc6n`.
 - **Lỗi còn lại hoặc mới xuất hiện:** Khi số bước tối đa quá nhỏ (`max_steps <= 2`), việc kích hoạt thêm lượt sửa sai có thể làm agent chạm trần số bước cho phép và dừng với trạng thái `max_steps`. Do đó `max_steps` cần được cấu hình từ 4 đến 6 bước trở lên.
